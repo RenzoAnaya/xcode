@@ -30,4 +30,21 @@ body {
     .titulo{
     margin-top: calc(0.6rem + 0.8vw);
     text-align: center;
-}
+    }
+
+    .container{
+      background-color: #F7F7FF;
+      align-items: center;
+    }
+
+
+    .mainContent{
+      padding-top: calc(0.6rem + 0.8vw);
+      background-color: #F7F7FF;
+      text-align: center;
+      justify-content: center;
+    }
+
+
+
+

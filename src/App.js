@@ -1,15 +1,21 @@
-import Content from "./components/Cotent";
+import Content from "./components/Content";
+import ItemCount from "./components/ItemCount";
+
 import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer"
 import "./styles/styles.css"
 
 function App() {
+
+  const inicial = 1
+  const max = 10
+
   return (
     <div className="App">
       <NavBar/>
-      <ItemListContainer greeting='Hola soy ItemListContainer' />
-      <Content/>
-      
+      <div className="mainContent">
+        <Content/>
+      <ItemCount inicial = {inicial} max= {max}/>
+      </div>
     </div>
   );
 }
