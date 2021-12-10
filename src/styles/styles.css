@@ -1,7 +1,7 @@
 @charset "UTF-8";
 html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #F7F7FF; }
+  background-color: #F7F7FF !important; }
 
 body {
   background-color: #F7F7FF; }

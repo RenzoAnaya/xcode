@@ -9,7 +9,7 @@ const NavBar = () => {
                 <Container>
                     <Navbar.Brand href="#home">Alchemia Caffe</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Collapse id="basic-navbar-nav justify-center">
                     <Nav className="me-auto">
                     <Nav.Link href="#home">Nosotros</Nav.Link>
                     <Nav.Link href="#link">Experiencia</Nav.Link>
