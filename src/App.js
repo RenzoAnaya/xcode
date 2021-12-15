@@ -1,5 +1,6 @@
 import Content from "./components/Content";
 import ItemCount from "./components/ItemCount";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 import NavBar from "./components/NavBar/NavBar";
@@ -16,7 +17,8 @@ function App() {
       <div className="mainContent">
         <Content/>
         <ItemListContainer/>
-      <ItemCount inicial = {inicial} max= {max}/>
+        <ItemCount inicial = {inicial} max= {max}/>
+        <ItemDetailContainer/>
       </div>
     </div>
   );
