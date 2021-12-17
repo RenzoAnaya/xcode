@@ -1,4 +1,6 @@
 import React from 'react'
+import { Card, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function Item({ prod }) {
     return (
@@ -7,24 +9,24 @@ function Item({ prod }) {
                                             className= 'col-md-4'
                                         >
                                             
-
-                                            <div className="card w-100 mt-5" >
-                                                <div className="card-header" >
-                                                    {`${prod.nombre} - ${prod.categoria}`}
-                                                </div>
-                                                <div className="card-body">
-                                                    <img src={prod.foto} alt='' className='w-50'/>
-                                                    {prod.price}
-                                                </div>
-                                                <div className="card-footer">
-                                                    <button className='btn btn-outline-primary'>
-                                                        Detalle de producto
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <Card className="productos" style={{ width: '18rem' }}>
+                                            <Card.Img variant="top" src={prod.foto} />
+                                            <Card.Body>
+                                            <Card.Title>{`${prod.categoria} - ${prod.nombre}`}</Card.Title>
+                                            <Card.Text>
+                                            {prod.price}
+                                            </Card.Text>
+                                            <Link to={`/detalle/${prod.id}`}>
+                                                <Button className="botonClickeable" variant="primary">Detalle de producto</Button>
+                                            </Link>
+                                            </Card.Body>
+                                            </Card>
+        </div>
 
     )
 }
 
+
+
 export default Item
+

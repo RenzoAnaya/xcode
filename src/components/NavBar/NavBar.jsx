@@ -1,3 +1,4 @@
+import { Link, NavLink } from 'react-router-dom'
 import React from 'react'
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import CartWidget from './CartWidget'
@@ -7,16 +8,14 @@ const NavBar = () => {
         <div>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">Alchemia Caffe</Navbar.Brand>
+                    <Link to="/">Alchemia Caffe</Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav justify-center">
                     <Nav className="me-auto">
-                    <Nav.Link href="#home">Nosotros</Nav.Link>
-                    <Nav.Link href="#link">Experiencia</Nav.Link>
+                    <NavLink to="/nosotros" >Nosotros</NavLink>
                     <NavDropdown title="Productos" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Café de especialidad</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Métodos de café</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Guías de café</NavDropdown.Item>
+                    <NavLink ClassName="dropdownItem" to="/categoria/cafes">Café de especialidad</NavLink>
+                    <NavLink ClassName="dropdownItem" to="/categoria/cafeteras">Métodos de café</NavLink>
                     </NavDropdown>
                     </Nav>
                     <CartWidget/>

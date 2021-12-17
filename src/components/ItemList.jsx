@@ -1,10 +1,13 @@
 import React from 'react'
 import Item from './Item'
+import { Row } from 'react-bootstrap'
 
 function ItemList({ productos }) {
     return (
         <>
-            {productos.map((prod) => <Item prod = { prod } /> ) }
+        <Row xs={1} md={2} className="g-4">
+            {productos.map((prod) => <Item className="displayProductos" prod = { prod }  /> ) }
+    </Row>
         </>
 
     )
