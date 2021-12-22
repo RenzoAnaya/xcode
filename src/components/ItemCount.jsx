@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import onAdd from 'react'
 
 const ItemCount = ({ max, inicial }) => {
 
@@ -19,8 +20,9 @@ const ItemCount = ({ max, inicial }) => {
     return (
         <div className="container">
             <h1>{value}</h1>
-            <button onClick={() => handleResta(2)}>-</button>
-            <button onClick={() => handleSuma(2)}>+</button>
+            <button onClick={() => handleResta(1)}>-</button>
+            <button onClick={() => handleSuma(1)}>+</button>
+            <button disabled={value === 0} onClick={() => onAdd (value)}>Agregar al carrito</button>
         </div>
     )
 

@@ -18,7 +18,9 @@ const NavBar = () => {
                     <NavLink ClassName="dropdownItem" to="/categoria/cafeteras">Métodos de café</NavLink>
                     </NavDropdown>
                     </Nav>
+                    <Link to="/cart">
                     <CartWidget/>
+                    </Link>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

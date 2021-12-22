@@ -1,17 +1,15 @@
 import{ BrowserRouter, Routes, Route } from 'react-router-dom'
-import Content from "./components/Content";
 import Home from './components/Home';
-import ItemCount from "./components/ItemCount";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import Cart from './components/NavBar/Cart';
+
 
 import NavBar from "./components/NavBar/NavBar";
 import "./styles/styles.css"
 
 function App() {
 
-  const inicial = 1
-  const max = 10
 
   return (
     <BrowserRouter>
@@ -31,11 +29,17 @@ function App() {
             path="/categoria/:idCate"
             element ={ <ItemListContainer/> }
             />
-            
+
             <Route
             exact
-            path="/detalle/:id"
+            path="/detalle/:idUno"
             element={ <ItemDetailContainer/> }
+            />
+
+            <Route
+            exact
+            path="/cart"
+            element={<Cart/>} 
             />
 
           </Routes>

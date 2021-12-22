@@ -1,28 +1,39 @@
 import React from 'react'
-import {Card, Button} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import { useState } from 'react';
+import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ item }) => {
- 
+function ItemDetail ({ itemd }) {
 
-
-    return (
-      <Card className="productos" style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={item.foto} />
-  <Card.Body>
-  <Card.Title>{`${item.nombre}`}</Card.Title>
-  <Card.Text>
-  {item.price}
-  </Card.Text>
-  <Link to="/carrito">
-      <Button className="botonClickeable" variant="primary">Agregar al carrito</Button>
-  </Link>
-  </Card.Body>
-  </Card>
-    );
+  const onAdd = (cantidad) =>{
+    console.log(cantidad);
+    setGoCart(true);
   };
-  export default ItemDetail;
-  
-  
+ 
+    return (
+      <div
+                                            key={itemd.id}
+                                            className= 'col-md-4'
+          >
 
-  
+            <Card className="productos">
+            <Card.Img variant="top" src={itemd.foto} />
+              <Card.Body>
+                <Card.Title>{`${itemd.nombre}`}</Card.Title>
+                <Card.Text>
+                {itemd.price}
+                </Card.Text>
+                {!goCart ? (
+                <ItemCount max={8} inicial={1} onAdd={onAdd} />
+                ) : (
+                <button>Ir al carrito</button>
+                )}
+                
+              </Card.Body>
+            </Card>
+      </div>
+    )
+}
+
+  export default ItemDetail;
