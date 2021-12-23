@@ -6,11 +6,11 @@ import { getFetch } from "../helpers/getFetch";
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
     
-    const {idUno} = useParams()
+    const {idUno} = useParams();
 
     useEffect(() => {
     getFetch
-    .then((res) => setItem(res.find((i) => i.id === idUno)))
+    .then((res) => setItem(res.find((i) => i.id === parseInt(idUno))))
     .catch((err) => console.log(err))
     },[idUno]);
 

@@ -1,7 +1,18 @@
-const Cart = () => {
+//import { useContext } from 'react'
+//import { CartContext } from '../CartContext';
+
+import { useCartContext } from "../CartContext";
+
+
+
+function Cart () {
+
+    const { cartList, borrarCarrito } = useCartContext ()
+
     return(
         <div className="container">
-            <h3>Soy el Content</h3>
+            { cartList.map(prod => <li>{prod.nombre} {prod.cantidad} </li>) }
+            <button onClick ={borrarCarrito} >Vaciar Carrito</button>
         </div>
     )
 };
