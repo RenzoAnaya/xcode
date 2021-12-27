@@ -8,6 +8,9 @@ function ItemListContainer({greeting}) {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
 
+    const [bool, setbool] = useState(true)
+    //const [items, setItems] = useState([])
+
     const { idCate } = useParams()
 
     useEffect(() => {
@@ -29,13 +32,29 @@ function ItemListContainer({greeting}) {
         .catch(err => console.log(err))
         .finally(() => setLoading (false))
     }, [idCate]);
+
+
+    const handleClick=(e)=>{
+        e.preventDefault()
+        setbool(!bool)
+    }
+
+    const handleAgregar=()=>{
+        setProductos([
+            ...productos,
+            {id: 8, foto: "https://plazavea.vteximg.com.br/arquivos/ids/1475241-450-450/1607629676984.jpg", price: 35,nombre:"Ulises", categoria:"cafes"}
+        ])
+    }
     
 
-    console.log (idCate)
+    console.log ('itemListContainer')
 
     return(
         <div className="container">
             { greeting }
+
+            <button onClick={handleClick}>Cambiar estado </button>
+            <button onClick={handleAgregar}>Agregar Item </button>
             { loading ?
                 <h2>Cargando...</h2>
                 :
@@ -46,7 +65,7 @@ function ItemListContainer({greeting}) {
             }
                 
 
-            </div>
+        </div>
         )
             
 }
