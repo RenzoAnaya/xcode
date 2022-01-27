@@ -1,52 +1,68 @@
-import React from 'react'
-import { useState } from 'react';
-import { Card } from 'react-bootstrap'
-import { useCartContext } from './CartContext';
+import React, { useState, useEffect, useContext } from "react";
+import { Button } from "react-bootstrap";
+import CartContext from "../contexts/cartContext";
 import ItemCount from "./ItemCount";
+import Item from "./Item";
 
 
 
 
-function ItemDetail ({ prod }) {
-  const [count, setCount] = useState (0)
+function ItemDetail ({ product }) {
 
-  const {cartList ,agregarAlCarrito}= useCartContext()
+  const { setCart, setQnt } = useContext(CartContext)
 
-  const onAdd = (cantidad) => {
-    console.log(cantidad)
-    agregarAlCarrito( {...prod, cantidad:cantidad});
-  };
+  const [article, setArticle] = useState();
+
+  useEffect(() => {
+    setArticle(product);
+  }, [product]);
 
 
-  console.log(cartList)
-  console.log(count)
-  console.log(setCount)
+    const [quantity, setQuantity] = useState(1);
+
+    const handleClick = () => {
+      setQnt((value) => value + quantity);
+      article.quantity = quantity;
+  
+      const prod = {
+        id: article.id,
+        name: article.name,
+        description: article.description,
+        stock: article.stock,
+        price: article.price,
+        quantity: article.quantity,
+        image: article.image,
+        brand: article.brand
+      };
+  
+      setCart((value) => [...value, prod]);
+    };
 
 
     return (
       <div
-                                            key={prod.id}
-                                            className= 'col-md-4'
-          >
-
-            <Card className="productos">
-            <Card.Img variant="top" src={prod.foto} />
-              <Card.Body>
-                <Card.Title>{`${prod.nombre}`}</Card.Title>
-                <Card.Text>
-                {prod.price}
-                </Card.Text>
-                {!agregarAlCarrito ? (
-                <ItemCount max={8} inicial={1} onAdd={onAdd} />
-                ) : (
-                <button>Ir al carrito</button>
-                )}
-                
-              </Card.Body>
-            </Card>
+                                            className= 'col-md-4 '
+            >
+            
+            <Item product = {product} />
+            <ItemCount
+            initial={1}
+            min={0}
+            max={product.stock}
+            setQuantity={setQuantity}
+            />
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleClick}
+                className="item-detail__btn"
+              >
+                Agregar al carrito {quantity}
+              </Button>
+            
       </div>
-    )
-}
+    );
+};
 
   export default ItemDetail;
 

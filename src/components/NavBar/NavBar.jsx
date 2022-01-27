@@ -8,14 +8,13 @@ const NavBar = () => {
         <div>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Link to="/">Alchemia Caffe</Link>
+                    <Link to="/" className='nombreLogo'>Alchemia Caffe</Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav justify-center">
                     <Nav className="me-auto">
-                    <NavLink to="/nosotros" >Nosotros</NavLink>
                     <NavDropdown title="Productos" id="basic-nav-dropdown">
-                    <NavLink ClassName="dropdownItem" to="/categoria/cafes">Café de especialidad</NavLink>
-                    <NavLink ClassName="dropdownItem" to="/categoria/cafeteras">Métodos de café</NavLink>
+                    <NavLink ClassName="dropdownItem" to="/categoria/cafe">Café de especialidad</NavLink>
+                    <NavLink ClassName="dropdownItem" to="/categoria/cafetera">Métodos de café</NavLink>
                     </NavDropdown>
                     </Nav>
                     <Link to="/cart">

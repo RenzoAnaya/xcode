@@ -1,22 +1,23 @@
 import React from 'react'
-import { Badge, Navbar } from 'react-bootstrap'
+import  { Navbar } from 'react-bootstrap'
 import carrito from '../../img/carrito.png'
-import { useEffect } from 'react';
-import useCartContext from '../CartContext';
+import { useEffect, useContext } from 'react';
+import Badge from "@material-ui/core/Badge"
+import CartContext from '../../contexts/cartContext';
 
 
-function CartWidget() {
+const CartWidget = () => {
+  const { cart, qnt, setQnt } = useContext(CartContext);
 
-    const { cart, qnt, setQnt } = useCartContext();
-  
-    useEffect(() => {
-      if (cart.length === 0) {
-        setQnt(0);
-      }
-    }, [cart, setQnt]);
+  useEffect(() => {
+    if (cart.length === 0) {
+      setQnt(0);
+    }
+  }, [cart, setQnt]);
 
     return(
-        <Navbar.Brand href="#home">
+        <Navbar.Brand>
+        <Badge badgeContent={qnt} color="secondary">
         <img
             src={ carrito }
             width="30"
@@ -24,7 +25,7 @@ function CartWidget() {
             className="d-inline-block align-top"
             alt="Carrito de compras"
         />
-        <Badge>{qnt}</Badge>
+        </Badge>
 
         </Navbar.Brand>
     )

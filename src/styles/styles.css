@@ -1,10 +1,15 @@
 @charset "UTF-8";
 html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #F7F7FF !important; }
+  background-color: #F5F5FF !important; }
 
 body {
-  background-color: #F7F7FF; }
+  background-color: #F5F5FF; }
+
+
+    #root{
+      background-color: #F5F5FF !important;
+    }
 
     .barraNavMacro {
     padding-bottom: 3rem;
@@ -33,6 +38,8 @@ body {
     }
 
     .container{
+      display: flex;
+      justify-content: center !important;
       background-color: #F7F7FF;
       align-items: center;
     }
@@ -86,6 +93,80 @@ body {
       border-top-right-radius: 28px !important;
     }
 
+    .card{
+      margin-left: calc(1rem + 2vw);
+      margin-right: calc(1rem + 2vw);
+    }
+
     .dropdownItem{
       text-decoration: none;
+    }
+    
+
+    .nombreLogo{
+      text-decoration: none;
+      font-size: calc(0.6rem + 0.8vw);
+      padding-left: calc(0.2rem + 2vw);
+      padding-right: calc(0.2rem + 2vw);
+      font-weight: bold;
+    }
+
+    .nombreLogo:active{
+      text-decoration: none;
+      font-size: calc(0.6rem + 0.8vw);
+      padding-left: calc(0.2rem + 2vw);
+      padding-right: calc(0.2rem + 2vw);
+      font-weight: bold;
+    }
+
+    #tituloLanding{
+      font-size: calc(0.2rem + 3vw);
+      text-align: center;
+      margin-top: calc(0.2rem + 3vw);
+      margin-bottom: calc(0.2rem + 3vw) ;
+      color: #43386B;
+    }
+
+    #beTheGold{
+      font-size: calc(0.2rem + 1vw);
+      text-align: center;
+      margin-top: calc(0.2rem + 1vw);
+      margin-bottom: calc(0.2rem + 1vw) ;
+      color: #CC8241;
+      font-weight: bolder;
+    }
+
+    .list-container{
+      display: flex;
+      flex-flow: column-reverse;
+      justify-content: space-around;
+    }
+
+    .list-container__details-title{
+      font-size: calc(0.4rem + 2vw);
+      text-align: center;
+      margin-top: calc(0.2rem + 3vw);
+      margin-bottom: calc(0.2rem + 3vw) ;
+      color: #CC8241;
+      font-weight: bold;
+      text-decoration: none;
+      padding-right: calc(0.2rem + 1vw);
+      padding-left: calc(0.2rem + 1vw);
+    }
+
+
+    .barra{
+      background-color: #43386B !important;
+      padding: calc(0.2rem + 1vw);
+    }
+
+    .categories{ 
+    text-align: center;
+    }
+
+    .categories__list{
+      display: flex;
+      justify-content: center;
+      flex-flow: wrap-reverse;
+      justify-content: space-around;
     }

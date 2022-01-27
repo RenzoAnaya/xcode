@@ -1,31 +1,45 @@
-import React, { useState } from 'react'
-import onAdd from 'react'
+import React, { useState, useEffect } from "react";
+import RemoveIcon from "@material-ui/icons/Remove";
+import AddIcon from "@material-ui/icons/Add";
 
-const ItemCount = ({ max, inicial }) => {
+const ItemCount = ({ initial, min, max, setQuantity }) => {
+    const [counter, setCounter] = useState(initial);
 
 
 
-    const [value, setValue] = useState (inicial)
-
-    const handleSuma = (valor) => {
-        value + valor < max ? setValue (prev => prev + valor) : alert ('No contamos con una cantidad mayor de stock')
-        
-    }
-
-    const handleResta = (valor) => {
-        value > inicial ? setValue(prev => prev - valor) : alert ('Debes comprar al menos un objeto')
-        
-    }
-
-    return (
-        <div className="container">
-            <h1>{value}</h1>
-            <button onClick={() => handleResta(1)}>-</button>
-            <button onClick={() => handleSuma(1)}>+</button>
-            <button disabled={value === 0} onClick={() => onAdd (value)}>Agregar al carrito</button>
+    const handleSuma = () => {
+        counter < max ? setCounter(counter + 1) : console.log("Máximo alcanzado");
+      };
+    
+      const handleResta = () => {
+        counter > min ? setCounter(counter - 1) : console.log("Mínimo alcanzado");
+      };
+    
+      useEffect(() => {
+        setQuantity(counter);
+      }, [counter, setQuantity]);
+    
+      return (
+        <div className="counter" style={{ width: "15rem" }}>
+          <div className="counter__content">
+            <div className="counter__content-controls">
+              <span
+                className="counter__content-controls-subtract"
+                onClick={handleResta}
+              >
+                <RemoveIcon />
+              </span>
+              <span className="counter__content-controls-value"> {counter} </span>
+              <span
+                className="counter__content-controls-add"
+                onClick={handleSuma}
+              >
+                <AddIcon />
+              </span>
+            </div>
+          </div>
         </div>
-    )
-
-}
-
-export default ItemCount
+      );
+    };
+    
+    export default ItemCount;

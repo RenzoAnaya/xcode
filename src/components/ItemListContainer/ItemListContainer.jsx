@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
-import { getFetch } from "../../helpers/getFetch"
+import  useParams  from 'react-router-dom'
+import  getFetch  from "../../helpers/getFetch"
 import ItemList from '../ItemList'
 
 function ItemListContainer({greeting}) {
